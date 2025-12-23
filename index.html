@@ -6,87 +6,156 @@
 <title>Happy Birthday Amna Nabila ❤️</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
 
-    .card {
-        background: white;
-        padding: 26px 22px;
-        border-radius: 24px;
-        text-align: center;
-        width: 100%;
-        max-width: 360px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-        animation: fadeIn 1.5s ease;
-    }
+.card {
+    background: white;
+    padding: 26px 22px;
+    border-radius: 24px;
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    animation: fadeIn 1.3s ease;
+    z-index: 2;
+}
 
-    h1 {
-        color: #ff3d68;
-        animation: glow 2s infinite alternate;
-        margin-bottom: 5px;
-    }
+h1 {
+    color: #ff3d68;
+    animation: glow 2s infinite alternate;
+}
 
-    h2 {
-        color: #ff6f91;
-        margin-top: 0;
-    }
+h2 {
+    color: #ff6f91;
+    margin-top: 0;
+}
 
-    p {
-        color: #444;
-        font-size: 15px;
-        line-height: 1.7;
-        margin: 12px 0;
-    }
+p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.7;
+}
 
-    .heart {
-        font-size: 42px;
-        animation: heartbeat 1.2s infinite;
-        margin: 15px 0;
-    }
+.heart {
+    font-size: 42px;
+    animation: heartbeat 1.2s infinite;
+    margin: 12px 0;
+}
 
-    .qr {
-        margin-top: 18px;
-    }
+.footer {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #777;
+}
 
-    .qr img {
-        width: 150px;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+/* POPUP */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
 
-    .footer {
-        margin-top: 14px;
-        font-size: 13px;
-        color: #777;
-    }
+.popup-box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    animation: pop 0.6s ease;
+    max-width: 280px;
+}
 
-    @keyframes heartbeat {
-        0% { transform: scale(1); }
-        30% { transform: scale(1.25); }
-        60% { transform: scale(1); }
-    }
+.popup-box h3 {
+    color: #ff3d68;
+}
 
-    @keyframes glow {
-        from { text-shadow: 0 0 6px #ff9aa2; }
-        to { text-shadow: 0 0 16px #ff3d68; }
-    }
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 14px;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
-    }
+/* CONFETTI */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    background: pink;
+    animation: fall 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.25); }
+    60% { transform: scale(1); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 6px #ff9aa2; }
+    to { text-shadow: 0 0 16px #ff3d68; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); }
+    100% { transform: translateY(800px) rotate(360deg); }
+}
 </style>
 </head>
 
 <body>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h3>🎉 HAPPY BIRTHDAY 🎉</h3>
+        <p>Amna Nabila 💕<br>Awak sangat special</p>
+        <button onclick="closePopup()">Open 💖</button>
+    </div>
+</div>
+
+<!-- CONFETTI -->
+<script>
+for(let i=0;i<30;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"%";
+    c.style.background=["#ff4d6d","#ffd166","#ff9aa2","#f72585"][Math.floor(Math.random()*4)];
+    c.style.animationDelay=Math.random()*3+"s";
+    document.body.appendChild(c);
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+</script>
 
 <div class="card">
     <h1>Happy Birthday 🎉</h1>
@@ -94,44 +163,23 @@
 
     <div class="heart">❤️</div>
 
-    <p>
-        Happy birthday awak.<br>
-        Hari ni hari awak,
-        and awak memang special.
-    </p>
+    <p>Happy birthday awak.<br>Hari ni hari awak, and awak memang special.</p>
 
-    <p>
-        Thank you sebab sentiasa ada dengan saya,
-        for every smile, support,
-        and patience awak.
-    </p>
+    <p>Thank you sebab sentiasa ada dengan saya,
+       for every smile, support, and patience awak.</p>
 
-    <p>
-        I hope hari ni penuh dengan happiness,
-        ketawa awak,
-        dan moment yang buat awak rasa loved.
-    </p>
+    <p>Saya doakan awak sihat,
+       dipermudahkan urusan,
+       dan semua impian awak tercapai 🤍</p>
 
-    <p>
-        Saya doakan awak sentiasa sihat,
-        dipermudahkan urusan,
-        dan semua impian awak tercapai 🤍
-    </p>
+    <p>I’m really grateful and lucky to have awak in my life.</p>
 
-    <p>
-        I’m really grateful and lucky
-        to have awak in my life.
-    </p>
+    <div class="footer">— from Aiman 💌</div>
 
-    <!-- QR CODE -->
-    <div class="qr">
-        <p><b>Scan this 💌</b></p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://m4iman.github.io/aimann/">
-    </div>
-
-    <div class="footer">
-        — from Aiman 💌
-    </div>
+    <!-- QR -->
+    <p><b>Scan QR ni 💝</b></p>
+    <img style="width:140px"
+    src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=PASTE_LINK_WEBSITE_KAT_SINI">
 </div>
 
 </body>
